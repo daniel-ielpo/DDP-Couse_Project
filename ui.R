@@ -6,7 +6,7 @@ shinyUI(fluidPage(
     sidebarPanel(
       sliderInput(
         "yearEdition",
-        "Summer Olympics Year:",
+        "Summer Olympics Edition:",
         min = 1896,
         max = 2008,
         value = 2008,
@@ -36,13 +36,13 @@ shinyUI(fluidPage(
         "About",
         h2("Developing Data Products - Course Project"),
         p(
-          "This is my submission for Developing Data Products Course Project. It's a basic shiny app."
+          "This is my submission for Developing Data Products Course Project. It's a dashboard made with shiny."
         ),
         p(
           "As the 2016 Summer Olympics Games are happening in my city, Rio de Janeiro, I searched the web for some datasets to use in this project."
         ),
         p(
-          "In the Tableau Public Sample Data Sets I found an Excel file with all medallists from 1896 to 2008 Summer Olympics. This dataset was published by The Guardian."
+          "In the Tableau Public Sample Data Sets I found an Excel file with all medalists from 1896 to 2008 Summer Olympics. This dataset was published by The Guardian."
         ),
         p("The download link is below:"),
         a(

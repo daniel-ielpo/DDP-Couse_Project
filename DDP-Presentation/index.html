@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Summer Olympics Medal Ranking from 1896 - 2008</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Summer Olympics Medal Ranking from 1896 - 2008">
+  <meta name="author" content="Daniel Ielpo">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <aside class="gdbar">
+    <img src="assets/img/logo.png">
+  </aside>
+  <hgroup class="auto-fadein">
+    <h1>Summer Olympics Medal Ranking from 1896 - 2008</h1>
+    <h2>Developing Data Products - Course Project - Presentation</h2>
+    <p>Daniel Ielpo<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction / Motivation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This is my submission for the Coursera Developing Data Products course Project.</p>
+
+<p>In this project I created a dashboard using Shiny to do some exploratory analysis in a Summer Olympics Medal dataset.</p>
+
+<p>As the 2016 Summer Olympics Games are happening in my city, Rio de Janeiro, I searched the web for some datasets to use in this project.</p>
+
+<p>I found an interesting dataset with all medalists from the 1896 - 2008 Summer Olympics, that will be described in the next slide.</p>
+
+<p>So I decide to create a interactive dashboard with this dataset to make a ranking with the countries who won most medals.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The Data Set</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The dataset I used in this project is published at Tableau Public Sample Data Sets.  </p>
+
+<p>There I found an Excel file with all medalists from 1896 to 2008 Summer Olympics. This dataset was published by The Guardian. </p>
+
+<p><a href="https://public.tableau.com/s/sites/default/files/media/Resources/Summer_Olympic_medallists_1896-2008.xlsx">https://public.tableau.com/s/sites/default/files/media/Resources/Summer_Olympic_medallists_1896-2008.xlsx</a></p>
+
+<p>I used the data contained at the &quot;ALL MEDALISTS&quot; sheet.</p>
+
+<p>To load the data I used readxl library to read the Excel file in the &quot;server.R&quot; file.</p>
+
+<pre><code class="r">library(&quot;readxl&quot;)
+ medalists &lt;- read_excel(&quot;../Summer_Olympic_medallists_1896-2008.xlsx&quot;, sheet = &quot;ALL MEDALISTS&quot;)
+</code></pre>
+
+<p>After that the data is aggregated by Edition, Country, and Medal using plyr library functions. </p>
+
+<p>Then I count and order the dataset to the country that won more medals to the country that won less medals in the total.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The Shiny app</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The dashboard app I build contains 3 inputs (Edition, Event Gender, Top Countries), so you can make an exploratory analysis with the loaded database.</p>
+
+<p>It has 2 outputs, a text output only to show some messages, and a plot output.</p>
+
+<p>The plot output uses ggplot, it has 3 columns with the total Bronze, Silver and Gold Medals.</p>
+
+<p>If there is no data available, for the Edition or gender, then a message is displayed showing that there is no data available.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Conclusion</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The app was deployed on shinyappps.io the link is below:</p>
+
+<p><a href="https://danielielpo.shinyapps.io/Developing_Data_Products_Course_Project/">https://danielielpo.shinyapps.io/Developing_Data_Products_Course_Project/</a></p>
+
+<p>The code for the app and for this presentation is available at my github account.</p>
+
+<p><a href="https://github.com/daniel-ielpo/DDP-Couse_Project">https://github.com/daniel-ielpo/DDP-Couse_Project</a></p>
+
+<p>I hope you have enjoyed.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction / Motivation'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The Data Set'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='The Shiny app'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Conclusion'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

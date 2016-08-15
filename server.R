@@ -6,20 +6,20 @@ shinyServer(function(input, output) {
     require("plyr")
     
     #Loading the xlsx data
-    medallists <-
+    medalists <-
       read_excel("Summer_Olympic_medallists_1896-2008.xlsx", sheet = "ALL MEDALISTS")
     
     #Subsetting the Year from the slider input
-    medallists <-
-      subset(medallists, Edition == input$yearEdition)
+    medalists <-
+      subset(medalists, Edition == input$yearEdition)
     
     #Subsetting the Gender from the select input
     if (input$gender != "All") {
-      medallists <- subset(medallists, Gender == input$gender)
+      medalists <- subset(medalists, Gender == input$gender)
     }
     
     groupedData <-
-      count(medallists, c("Edition", "NOC", "Medal"))
+      count(medalists, c("Edition", "NOC", "Medal"))
     
     groupedData <- rename(groupedData, c("freq" = "Total"))
     
@@ -27,7 +27,7 @@ shinyServer(function(input, output) {
     groupedData$Medal = factor(groupedData$Medal, levels = c('Bronze', 'Silver', 'Gold'))
     
     #Now I rank the countries by Total Medals
-    topCountries <- count(medallists, c("NOC"))
+    topCountries <- count(medalists, c("NOC"))
     topCountries <-
       topCountries[order(topCountries$freq, decreasing = TRUE), ]
     
