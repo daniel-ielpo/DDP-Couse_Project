@@ -19,15 +19,11 @@ So I decide to create a interactive dashboard with this dataset to make a rankin
 
 The Dataset 
 ========================================================
-The dataset I used in this project is published at Tableau Public Sample Data Sets.  
-
-There I found an Excel file with all medalists from 1896 to 2008 Summer Olympics. This dataset was published by The Guardian. 
+<small>The dataset I used in this project is published at Tableau Public Sample Data Sets.There I found an Excel file with all medalists from 1896 to 2008 Summer Olympics. This dataset was published by The Guardian. 
 
 https://public.tableau.com/s/sites/default/files/media/Resources/Summer_Olympic_medallists_1896-2008.xlsx
 
-I used the data contained at the "ALL MEDALISTS" sheet.
-
-To load the data I used readxl library to read the Excel file in the "server.R" file.
+I used the data contained at the "ALL MEDALISTS" sheet.To load the data I used readxl library to read the Excel file in the "server.R" file.
 
 
 ```r
@@ -35,9 +31,7 @@ library("readxl")
  medalists <- read_excel("../Summer_Olympic_medallists_1896-2008.xlsx", sheet = "ALL MEDALISTS")
 ```
 
-After that the data is aggregated by Edition, Country, and Medal using plyr library functions. 
-
-Then I count and order the dataset to the country that won more medals to the country that won less medals in the total.
+After that the data is aggregated by Edition, Country, and Medal using plyr library functions. Then I count and order the dataset to the country that won more medals to the country that won less medals in the total.</small>
 
 The Shiny app
 ========================================================
